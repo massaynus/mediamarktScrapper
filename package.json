@@ -1,0 +1,18 @@
+{
+  "name": "mediamarkt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "categories.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.5",
+    "cors": "^2.8.5",
+    "get-urls": "^10.0.0",
+    "node-fetch": "^2.6.1",
+    "selenium-webdriver": "^4.0.0-beta.1"
+  }
+}
