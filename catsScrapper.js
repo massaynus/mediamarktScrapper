@@ -15,7 +15,6 @@ class MediamarktCategoriesScrapper {
                     }
                 });
 
-            console.log(categoryLinks);
             return categoryLinks;
         }
         else {
@@ -45,7 +44,7 @@ class MediamarktCategoriesScrapper {
     run = async () => {
         const mainUrls = await this.scrapeMainCategories();
 
-        const subCategories = [];
+        const categories = [];
         const mainCategories = [];
 
         for (let cat of mainUrls) {
@@ -55,11 +54,11 @@ class MediamarktCategoriesScrapper {
             const subs = await this.scrapeSubCategories(cat);
 
             for (let sub of subs) {
-                subCategories.push(sub);
+                categories.push(sub);
             }
         }
 
-        return { mainCategories, subCategories };
+        return { mainCategories, categories };
     }
 
 }
