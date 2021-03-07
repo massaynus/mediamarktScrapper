@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const categoriesScrapper = new (require('./catsScrapper'))();
-const ProductsScrapper = require('./productLinksScrapper');
+const categoriesScrapper = new (require('./scrappers/catsScrapper'))();
+const ProductsScrapper = require('./scrappers/productLinksScrapper');
 
 const CATEGORIES_FILE_NAME = path.join(__dirname, 'data', 'categories.json');
 const PRODUCTS_FILE_NAME = path.join(__dirname, 'data', 'products.json');
