@@ -3,9 +3,11 @@ const path = require('path');
 
 const categoriesScrapper = new (require('./scrappers/catsScrapper'))();
 const ProductsScrapper = require('./scrappers/productLinksScrapper');
+const ProductDataExtractor = require('./scrappers/producDataExtractor');
 
 const CATEGORIES_FILE_NAME = path.join(__dirname, 'data', 'categories.json');
 const PRODUCTS_FILE_NAME = path.join(__dirname, 'data', 'products.json');
+const PRODUCT_DATA_FILE_NAME = path.join(__dirname, 'data', 'productsData.json');
 const MAX_PAGES = 5;
 
 async function getCats() {
@@ -20,7 +22,7 @@ async function getCats() {
 }
 
 async function getProducts() {
-    fs.readFile(CATEGORIES_FILE_NAME, async (err , data) => {
+    fs.readFile(CATEGORIES_FILE_NAME, async (err, data) => {
         if (err) throw err;
 
         const prods = [];
@@ -34,7 +36,7 @@ async function getProducts() {
         for (let index = 0; index < 3; index++) {
             // const pos = Math.floor(Math.random() * cats.length) + 1;
             const pos = index;
-            
+
             const cat = cats[pos];
             console.log(`\ngetting url at ${pos}\turl: ${cat}`);
 
@@ -56,8 +58,39 @@ async function getProducts() {
     })
 }
 
+async function getProductData() {
+    fs.readFile(PRODUCTS_FILE_NAME, async (err, data) => {
+        if (err) throw err;
+
+        const prods = [];
+        const urls = JSON.parse(data);
+
+        for (let i = 0; i < urls.length; i++) {
+            const cat_url = urls[i];
+            console.log(`doing category ${i + 1} of ${urls.length}`);
+
+            const extractor = new ProductDataExtractor(cat_url.links, 4);
+            
+            prods.push({
+                category: urls.cat,
+                products: await extractor.extract()
+            });
+        }
+
+        fs.writeFile(PRODUCT_DATA_FILE_NAME, JSON.stringify(prods), (err) => {
+            if (err) throw err;
+            else console.log('prods written...');
+        });
+
+        return prods;
+    })
+}
+
 // getCats()
 //     .then(data => console.log(data));
 
-getProducts()
+// getProducts()
+//     .then(data => console.log(data));
+
+getProductData()
     .then(data => console.log(data));

@@ -1,4 +1,3 @@
-const cheerio = require('cheerio');
 const getUrls = require('get-urls');
 const fetch = require('node-fetch');
 
