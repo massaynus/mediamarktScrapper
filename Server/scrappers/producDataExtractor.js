@@ -1,6 +1,5 @@
-const cheerio = require('cheerio');
-const fetch = require('node-fetch');
-const puppeteer = require('puppeteer');
+import cheerio from 'cheerio';
+import puppeteer from 'puppeteer';
 
 class ProducDataExtractor {
 
@@ -104,4 +103,4 @@ class ProducDataExtractor {
 
 }
 
-module.exports = ProducDataExtractor;
+export default ProducDataExtractor;

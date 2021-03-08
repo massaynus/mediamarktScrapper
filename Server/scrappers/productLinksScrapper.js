@@ -1,4 +1,4 @@
-const puppeteer = require('puppeteer');
+import puppeteer from 'puppeteer';
 
 class ProductLinksScrapper {
 
@@ -65,4 +65,4 @@ class ProductLinksScrapper {
 }
 
 
-module.exports = ProductLinksScrapper;
+export default ProductLinksScrapper;

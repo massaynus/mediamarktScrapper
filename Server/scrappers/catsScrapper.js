@@ -1,5 +1,5 @@
-const getUrls = require('get-urls');
-const fetch = require('node-fetch');
+import getUrls from 'get-urls';
+import fetch from 'node-fetch';
 
 class MediamarktCategoriesScrapper {
 
@@ -63,4 +63,4 @@ class MediamarktCategoriesScrapper {
 }
 
 
-module.exports = MediamarktCategoriesScrapper;
+export default MediamarktCategoriesScrapper;
