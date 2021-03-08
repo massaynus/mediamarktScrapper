@@ -1,12 +1,12 @@
-import { model, Schema } from 'mongoose';
+import mongoose from 'mongoose';
 
-const Category = model('Category', new Schema({
+const Category = mongoose.model('Category', new mongoose.Schema({
     url: String,
     name: String,
     productsCount: Number,
     parent_url: String,
     products: [{
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         res: 'Product'
     }]
 }));
