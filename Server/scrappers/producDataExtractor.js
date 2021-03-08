@@ -52,7 +52,7 @@ class ProducDataExtractor {
 
         const $ = cheerio.load(data);
         const name = $('h1').text();
-        const price = $('span.Typostyled__StyledInfoTypo-sc-1jga2g7-0.bvXwUO.Pricestyled__BrandedPriceTypo-sc-1bu146t-0.kcGTpT').text();
+        const price = parseInt($('span.Typostyled__StyledInfoTypo-sc-1jga2g7-0.bvXwUO.Pricestyled__BrandedPriceTypo-sc-1bu146t-0.kcGTpT').text().split('.')[0]);
         const brand = $('#root > div.indexstyled__StyledAppWrapper-sc-1hu9cx8-0.klAfyt > div.ProductDetailPagestyled__StyledPdpWrapper-sc-5s3nfq-1.hjoxyt > div:nth-child(1) > div > div.Cellstyled__StyledCell-sc-1wk5bje-0.eJonzE.ProductDetailPagestyled__StyledPdpHeaderCell-sc-5s3nfq-3.cVjger > div > div > a > img').attr('alt');
         const inStock = $("#root > div.indexstyled__StyledAppWrapper-sc-1hu9cx8-0.klAfyt > div.ProductDetailPagestyled__StyledPdpWrapper-sc-5s3nfq-1.hjoxyt > div:nth-child(1) > div > div.Cellstyled__StyledCell-sc-1wk5bje-0.ibdyBk.ProductDetailPagestyled__StyledPdpDetailCell-sc-5s3nfq-4.gLozy > div > div > div:nth-child(3) > div > span")
                         != null;
