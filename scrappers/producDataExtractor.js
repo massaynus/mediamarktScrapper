@@ -13,7 +13,7 @@ class ProducDataExtractor {
 
         const browser = await puppeteer.launch({
             headless: false,
-            slowMo: 300,
+            slowMo: 50,
             defaultViewport: {
                 height: 700,
                 width: 1300
@@ -55,6 +55,25 @@ class ProducDataExtractor {
         const name = $('h1').text();
         const price = $('span.Typostyled__StyledInfoTypo-sc-1jga2g7-0.bvXwUO.Pricestyled__BrandedPriceTypo-sc-1bu146t-0.kcGTpT').text();
         const brand = $('#root > div.indexstyled__StyledAppWrapper-sc-1hu9cx8-0.klAfyt > div.ProductDetailPagestyled__StyledPdpWrapper-sc-5s3nfq-1.hjoxyt > div:nth-child(1) > div > div.Cellstyled__StyledCell-sc-1wk5bje-0.eJonzE.ProductDetailPagestyled__StyledPdpHeaderCell-sc-5s3nfq-3.cVjger > div > div > a > img').attr('alt');
+        const inStock = $("#root > div.indexstyled__StyledAppWrapper-sc-1hu9cx8-0.klAfyt > div.ProductDetailPagestyled__StyledPdpWrapper-sc-5s3nfq-1.hjoxyt > div:nth-child(1) > div > div.Cellstyled__StyledCell-sc-1wk5bje-0.ibdyBk.ProductDetailPagestyled__StyledPdpDetailCell-sc-5s3nfq-4.gLozy > div > div > div:nth-child(3) > div > span")
+                        != null;
+
+        let delivery = $('#root > div.indexstyled__StyledAppWrapper-sc-1hu9cx8-0.klAfyt > div.ProductDetailPagestyled__StyledPdpWrapper-sc-5s3nfq-1.hjoxyt > div:nth-child(1) > div > div.Cellstyled__StyledCell-sc-1wk5bje-0.ibdyBk.ProductDetailPagestyled__StyledPdpDetailCell-sc-5s3nfq-4.gLozy > div > div > div:nth-child(3) > div > div.Availabilitystyled__StyledAvailabilityWrapper-sc-901vi5-0.dQrJYh > div.Availabilitystyled__StyledAvailabilityHeadingWrapper-sc-901vi5-2.duCLGf > span').text();
+        delivery = delivery.replace('Entrega ','');
+
+        let dates = delivery.split('-').map(d => {
+            const parts = d.split('.');
+            return new Date(parts[2], parts[1] - (parts[1] > 0 ? 1 : 0), parts[0])
+        });
+        
+        let now = new Date().getTime();
+
+        for (let i = 0; i < dates.length; i++) {
+            const date = dates[i];
+            dates[i] = Math.round(Math.abs(date - now) / (1000 * 60 * 60));
+        }
+
+        delivery = dates.join('-') + ' hours';
 
         let specifications = [];
 
@@ -71,7 +90,16 @@ class ProducDataExtractor {
 
         specifications = specifications.filter(spec => spec.key != '');
 
-        return { name, url: this.url, price, brand, specifications };
+        const images = [];
+        $('#root > div.indexstyled__StyledAppWrapper-sc-1hu9cx8-0.klAfyt > div.ProductDetailPagestyled__StyledPdpWrapper-sc-5s3nfq-1.hjoxyt > div:nth-child(1) > div > div.Cellstyled__StyledCell-sc-1wk5bje-0.gNzMLI > div > div > div.Gallerystyled__StyledCarouselWrapper-sc-1wra1rw-0.rGwsm img')
+            .each((_, el) => {
+                images.push({
+                    src: $(el).attr('src'),
+                    alt: $(el).attr('alt')
+                });
+            });
+
+        return { name, url, price, brand, inStock, delivery, images, specifications };
     }
 
 }

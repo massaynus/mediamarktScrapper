@@ -8,7 +8,9 @@ const ProductDataExtractor = require('./scrappers/producDataExtractor');
 const CATEGORIES_FILE_NAME = path.join(__dirname, 'data', 'categories.json');
 const PRODUCTS_FILE_NAME = path.join(__dirname, 'data', 'products.json');
 const PRODUCT_DATA_FILE_NAME = path.join(__dirname, 'data', 'productsData.json');
+
 const MAX_PAGES = 5;
+const CHUNK_SIZE = 5;
 
 async function getCats() {
     const categoryURLs = await categoriesScrapper.run();
@@ -59,6 +61,9 @@ async function getProducts() {
 }
 
 async function getProductData() {
+    // const extractor = new ProductDataExtractor(['https://www.mediamarkt.es/es/product/_portátil-gaming-asus-rog-g712lv-h7077-14-intel®-core™-i7-10750h-32-gb-ram-1-tb-ssd-rtx-2060-freedos-1502439.html'], CHUNK_SIZE);
+    // return await extractor.extract();
+
     fs.readFile(PRODUCTS_FILE_NAME, async (err, data) => {
         if (err) throw err;
 
@@ -69,7 +74,7 @@ async function getProductData() {
             const cat_url = urls[i];
             console.log(`doing category ${i + 1} of ${urls.length}`);
 
-            const extractor = new ProductDataExtractor(cat_url.links, 4);
+            const extractor = new ProductDataExtractor(cat_url.links, CHUNK_SIZE);
             
             prods.push({
                 category: urls.cat,
