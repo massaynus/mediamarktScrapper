@@ -1,16 +1,7 @@
-import mongoose from 'mongoose';
-
 import Category from "../Models/Category.js";
 import Product from "../Models/Product.js";
 
 class DbAccess {
-    static Init = async () => {
-        try {
-            await mongoose.connect('mongodb://localhost/CrawloDB', { useNewUrlParser: true, useUnifiedTopology: true });
-        } catch (error) {
-            console.log(error);
-        }
-    }
 
     static CreateCategory = async (url = '', name = '', productsCount = 0, parent_url = '', products = []) => {
         try {
