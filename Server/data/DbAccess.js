@@ -73,7 +73,10 @@ class DbAccess {
 
     static GetCategories = async () => {
         try {
-            return await Category.find().exec();
+            return await Category
+                .find()
+                .select(['_id', 'name', 'productsCount'])
+                .exec();
         } catch (error) {
             console.log(error);
             return null;
