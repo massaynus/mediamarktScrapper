@@ -55,7 +55,7 @@ class DbAccess {
 
     static FindCategory = async (id) => {
         try {
-            return await Category.findById({ _id: id }).exec();
+            return await Category.find({ _id: id }).exec();
         } catch (error) {
             console.log(error);
             return null;
@@ -64,7 +64,7 @@ class DbAccess {
 
     static FindProduct = async (id) => {
         try {
-            return await Product.findById({ _id: id }).exec();
+            return await Product.find({ _id: id }).exec();
         } catch (error) {
             console.log(error);
             return null;
@@ -91,10 +91,13 @@ class DbAccess {
 
     static GetCategoryProducts = async (id) => {
         try {
-            return await Category
-                .findById({ _id: id })
-                .populate('products')
+            const category = await Category
+                .find({ _id: id })
                 .exec();
+
+            const products = await Product.find({_id: {$in: category.products}}).exec();
+
+            return products;
                 
         } catch (error) {
             console.log(error);
