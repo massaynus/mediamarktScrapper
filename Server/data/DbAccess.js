@@ -5,18 +5,15 @@ class DbAccess {
 
     static CreateCategory = async (url = '', name = '', productsCount = 0, parent_url = '', products = []) => {
         try {
-            const category = new Category({
+            return await this.CreateCategoryFromObject({
                 url, name, productsCount, parent_url, products
             });
-
-            await category.save();
-            return category;
         } catch (error) {
             console.log(error);
         }
     }
 
-    static CreateCategory = async (categoryData) => {
+    static CreateCategoryFromObject = async (categoryData) => {
         try {
             const category = new Category(categoryData);
 
@@ -29,7 +26,7 @@ class DbAccess {
 
     static CreateProduct = async (url = '', name = '', price = 0, brand = '', inStock = false, delivery = '', specifications = [{ key: '', value: '' }], images = [{ src: '', alt: '' }]) => {
         try {
-            const product = new Product({
+            return await this.CreateProductFromObject({
                 url,
                 name,
                 price,
@@ -40,14 +37,12 @@ class DbAccess {
                 images,
             });
 
-            await product.save();
-            return product;
         } catch (error) {
             console.log(error);
         }
     }
 
-    static CreateProduct = async (productData) => {
+    static CreateProductFromObject = async (productData) => {
         try {
             const product = new Product(productData);
 
@@ -60,7 +55,7 @@ class DbAccess {
 
     static FindCategory = async (id) => {
         try {
-            return await Category.findById({_id: id}).exec();  
+            return await Category.findById({ _id: id }).exec();
         } catch (error) {
             console.log(error);
             return null;
@@ -69,7 +64,7 @@ class DbAccess {
 
     static FindProduct = async (id) => {
         try {
-            return await Product.findById({_id: id}).exec();  
+            return await Product.findById({ _id: id }).exec();
         } catch (error) {
             console.log(error);
             return null;
@@ -78,7 +73,7 @@ class DbAccess {
 
     static GetCategories = async () => {
         try {
-            return await Category.find().exec();  
+            return await Category.find().exec();
         } catch (error) {
             console.log(error);
             return null;
@@ -87,7 +82,7 @@ class DbAccess {
 
     static GetProducts = async () => {
         try {
-            return await Product.find().exec();  
+            return await Product.find().exec();
         } catch (error) {
             console.log(error);
             return null;
@@ -97,10 +92,10 @@ class DbAccess {
     static GetCategoryProducts = async (id) => {
         try {
             return await Category
-                .findById({_id: id})
+                .findById({ _id: id })
                 .populate('products')
                 .exec();
-            
+                
         } catch (error) {
             console.log(error);
             return null;
