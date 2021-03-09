@@ -16,6 +16,17 @@ class DbAccess {
         }
     }
 
+    static CreateCategory = async (categoryData) => {
+        try {
+            const category = new Category(categoryData);
+
+            await category.save();
+            return category;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     static CreateProduct = async (url = '', name = '', price = 0, brand = '', inStock = false, delivery = '', specifications = [{ key: '', value: '' }], images = [{ src: '', alt: '' }]) => {
         try {
             const product = new Product({
@@ -28,6 +39,17 @@ class DbAccess {
                 specifications,
                 images,
             });
+
+            await product.save();
+            return product;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    static CreateProduct = async (productData) => {
+        try {
+            const product = new Product(productData);
 
             await product.save();
             return product;

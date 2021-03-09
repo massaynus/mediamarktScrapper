@@ -100,7 +100,7 @@ export async function populateDb() {
         console.log(`cat-url: ${cat}`);
 
         const category = await categoriesScrapper.extractCategoryData('', cat);
-        const dbCategory = await DbAccess.CreateCategory(category.url, category.name, category.productsCount, category.parent_url);
+        const dbCategory = await DbAccess.CreateCategory(category);
 
         const links = await new ProductsScrapper(cat, MAX_DEPTH).getProductLinks();
         const extractor = new ProductDataExtractor(links, CHROMIUM_CHUNK_SIZE);
@@ -108,7 +108,7 @@ export async function populateDb() {
         const products = await extractor.extract();
 
         for (const product of products) {
-            const dbProduct = await DbAccess.CreateProduct(product.url, product.name, product.price, product.brand, product.inStock, product.delivery, product.specifications, product.images);
+            const dbProduct = await DbAccess.CreateProduct(product);
             dbCategory.products.push(dbProduct);
         }
 
