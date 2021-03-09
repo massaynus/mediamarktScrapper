@@ -55,7 +55,7 @@ class DbAccess {
 
     static FindCategory = async (id) => {
         try {
-            return await Category.find({ _id: id }).exec();
+            return await Category.findOne({ _id: id }).exec();
         } catch (error) {
             console.log(error);
             return null;
@@ -91,14 +91,11 @@ class DbAccess {
 
     static GetCategoryProducts = async (id) => {
         try {
-            const category = await Category
-                .find({ _id: id })
-                .exec();
+            const ids = (await Category.findOne({_id: id}).select('products').exec()).products;
 
-            const products = await Product.find({_id: {$in: category.products}}).exec();
-
+            const products = await Product.find({ _id: { $in: ids } }).exec();
             return products;
-                
+
         } catch (error) {
             console.log(error);
             return null;
@@ -108,6 +105,15 @@ class DbAccess {
     static GetCategoriesCount = async () => {
         try {
             return await Category.countDocuments().exec();
+        } catch (error) {
+            console.log(error);
+            return -1;
+        }
+    }
+
+    static GetProductsCount = async () => {
+        try {
+            return await Product.countDocuments().exec();
         } catch (error) {
             console.log(error);
             return -1;
