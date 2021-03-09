@@ -6,8 +6,8 @@ import ProductDataExtractor from './producDataExtractor.js';
 
 const categoriesScrapper = new CategoriesScrapper();
 
-const MAX_DEPTH = 5;
-const CHROMIUM_CHUNK_SIZE = 3;
+const MAX_DEPTH = process.env.MAX_DEPTH || 3;
+const CHROMIUM_CHUNK_SIZE = process.env.CHROMIUM_CHUNK_SIZE || 3;
 
 export async function getCats() {
     const categoryURLs = await categoriesScrapper.run();
@@ -58,9 +58,6 @@ export async function getProducts() {
 }
 
 export async function getProductData() {
-    // const extractor = new ProductDataExtractor(['https://www.mediamarkt.es/es/product/_portátil-gaming-asus-rog-g712lv-h7077-14-intel®-core™-i7-10750h-32-gb-ram-1-tb-ssd-rtx-2060-freedos-1502439.html'], CHUNK_SIZE);
-    // return await extractor.extract();
-
     fs.readFile(PRODUCTS_FILE_NAME, async (err, data) => {
         if (err) throw err;
 
@@ -89,6 +86,10 @@ export async function getProductData() {
 }
 
 export async function populateDb() {
+    if (await DbAccess.GetCategoriesCount() > 0) {
+        return;
+    }
+
     const cats = [
         "https://mediamarkt.es/es/category/_m%C3%B3viles-xiaomi-759538.html",
         "https://mediamarkt.es/es/category/_black-friday-706013.html",
@@ -99,7 +100,6 @@ export async function populateDb() {
         console.log(`cat-url: ${cat}`);
 
         const category = await categoriesScrapper.extractCategoryData('', cat);
-
         const dbCategory = await DbAccess.CreateCategory(category.url, category.name, category.productsCount, category.parent_url);
 
         const links = await new ProductsScrapper(cat, MAX_DEPTH).getProductLinks();
@@ -108,15 +108,11 @@ export async function populateDb() {
         const products = await extractor.extract();
 
         for (const product of products) {
-            console.log(`prod-url: ${product.url}`);
-            
-
             const dbProduct = await DbAccess.CreateProduct(product.url, product.name, product.price, product.brand, product.inStock, product.delivery, product.specifications, product.images);
             dbCategory.products.push(dbProduct);
         }
 
         dbCategory.save();
-
         console.log(`save category: ${dbCategory.name}`);
     }
 }

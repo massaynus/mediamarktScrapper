@@ -84,6 +84,15 @@ class DbAccess {
             return null;
         }
     }
+
+    static GetCategoriesCount = async () => {
+        try {
+            return await Category.countDocuments().exec();
+        } catch (error) {
+            console.log(error);
+            return -1;
+        }
+    }
 }
 
 export default DbAccess;
