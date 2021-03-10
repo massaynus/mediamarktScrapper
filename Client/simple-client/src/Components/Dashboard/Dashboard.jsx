@@ -19,8 +19,12 @@ const Dashboard = () => {
     return (
         <Col>
             <h1>Dashboard</h1>
-            <Row>
-                <Col>
+            <span className="text-muted">Click label to add or remove corresponding data from chart </span>
+
+            <hr />
+
+            <Row className="my-5">
+                <Col md={6} className="my-3">
                     {
                         prices
                             ? <HorizontalBar
@@ -62,7 +66,7 @@ const Dashboard = () => {
 
                     }
                 </Col>
-                <Col>
+                <Col md={6} className="my-3">
                     {
                         prices
                             ? <Pie
