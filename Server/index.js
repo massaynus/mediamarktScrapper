@@ -10,6 +10,7 @@ const DB_CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://loca
 const PORT = process.env.PORT || 5000;
 
 const app = express();
+
 app.use('/api', routes);
 app.get('/', (_, res) => {
     res.status(200);

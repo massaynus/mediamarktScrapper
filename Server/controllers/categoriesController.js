@@ -2,9 +2,9 @@ import express from 'express';
 import DbAccess from '../data/DbAccess.js';
 
 /**
- * 
- * @param {express.Request} _ 
- * @param {express.Response} res 
+ *
+ * @param {express.Request} _
+ * @param {express.Response} res
  */
 
 export const getAll = async (_, res) => {
@@ -13,9 +13,9 @@ export const getAll = async (_, res) => {
 }
 
 /**
- * 
- * @param {express.Request} req 
- * @param {express.Response} res 
+ *
+ * @param {express.Request} req the request object
+ * @param {express.Response} res the response object
  */
 export const getOne = async (req, res) => {
     const category = await DbAccess.FindCategory(req.params.id)
@@ -24,9 +24,9 @@ export const getOne = async (req, res) => {
 
 
 /**
- * 
- * @param {express.Request} req 
- * @param {express.Response} res 
+ *
+ * @param {express.Request} req
+ * @param {express.Response} res
  */
  export const getOneProducts = async (req, res) => {
     const products = await DbAccess.GetCategoryProducts(req.params.id);

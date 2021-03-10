@@ -64,7 +64,7 @@ class ProducDataExtractor {
             const parts = d.split('.');
             return new Date(parts[2], parts[1] - (parts[1] > 0 ? 1 : 0), parts[0])
         });
-        
+
         let now = new Date().getTime();
 
         for (let i = 0; i < dates.length; i++) {
