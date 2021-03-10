@@ -1,6 +1,7 @@
 import express from 'express';
 import DbAccess from '../data/DbAccess.js';
 import Product from '../Models/Product.js';
+import Category from '../Models/Category.js';
 
 /**
  *
