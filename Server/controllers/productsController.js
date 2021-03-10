@@ -1,6 +1,6 @@
 import express from 'express';
 import DbAccess from '../data/DbAccess.js';
-
+import Product from '../Models/Product.js';
 
 /**
  *
@@ -19,7 +19,18 @@ export const getAll = async (_, res) => {
  * @param {express.Response} res the response object
  */
 export const getOne = async (req, res) => {
-    const category = await DbAccess.FindProduct(req.params.id)
-    res.status(200).json(category).end();
+    const product = await DbAccess.FindProduct(req.params.id)
+    res.status(200).json(product).end();
 }
+
+/**
+ *
+ * @param {express.Request} _ the request object
+ * @param {express.Response} res the response object
+ */
+export const getPrices = async (_, res) => {
+    const prices = await Product.find().select('price').exec();
+    res.status(200).json(prices).end();
+}
+
 
