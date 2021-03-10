@@ -37,7 +37,6 @@ const Browse = () => {
 
         const Load = async () => {
             const prods = await API.Categories.getOneProducts(category._id);
-            console.log(prods);
             setProducts(prods);
 
             if(prods.length > 0) {
