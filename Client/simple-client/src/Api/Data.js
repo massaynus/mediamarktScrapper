@@ -1,18 +1,23 @@
 import axios from 'axios';
-import Constants from '../Constants/Constants';
+import * as Constants from '../Constants/Constants';
 
+
+const resolve = async (route) => {
+    const res = await axios.get(`${Constants.API_URL}${route}`);
+    return res.data;
+}
 
 export const Categories = {
-    getAll: async () => axios.get(`${Constants.API_URL}/categories`),
-    getPrices: async () => axios.get(`${Constants.API_URL}/categories/prices`),
-    getOne: async () => axios.get(`${Constants.API_URL}/categories/:id`),
-    getOneProducts: async () => axios.get(`${Constants.API_URL}/categories/:id/products`),
-    getOnePrices: async () => axios.get(`${Constants.API_URL}/categories/:id/prices`),
+    getAll: async () => await resolve('/categories'),
+    getPrices: async () => await resolve('/categories/prices'),
+    getOne: async (id) => await resolve(`/categories/${id}`),
+    getOneProducts: async (id) => await resolve(`/categories/${id}/products`),
+    getOnePrices: async (id) => await resolve(`/categories/${id}/prices`),
 
 }
 
 export const Products = {
-    getAll: async () => axios.get(`${Constants.API_URL}/products`),
-    getPrices: async () => axios.get(`${Constants.API_URL}/products/prices`),
-    getOne: async () => axios.get(`${Constants.API_URL}/products/:id`),
+    getAll: async () => await resolve('/products'),
+    getPrices: async () => await resolve('/products/prices'),
+    getOne: async (id) => await resolve(`/products/${id}`),
 }
