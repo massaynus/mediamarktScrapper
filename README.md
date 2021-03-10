@@ -15,7 +15,7 @@ otherwise the scrappers work as follows:
     - scrapeSubCategories: extracts all the suv categories present in a main category page (urls only)
     - extractCategoryData: extracts the category data from a given url
 
-- ProductLinksScrapper: has the task of getting all the urls of products present in the category url given. the `maxPages` arg tells it how many times to trigger the pagination load
+- ProductLinksScrapper: has the task of getting all the **urls** of products present in the category url given. the `maxPages` arg tells it how many times to trigger the pagination load
 
 - ProducDataExtractor: takes in an array of prodct urls, and a `chunkSize`, because this page needs a browser env to load correctly, we load them in a chromium instance, the chunk size is used to determine the max amount of pages to ba opened at once.
 
