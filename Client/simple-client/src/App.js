@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import { Container, Row, Col, Nav, Navbar, NavItem } from 'react-bootstrap';
+import { Container, Row, Col, Nav, Navbar } from 'react-bootstrap';
 
 import Browse from './Components/Browse/Browse';
 import Dashboard from './Components/Dashboard/Dashboard';
@@ -9,33 +9,36 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
     return (
-        <Router >
+        <Router>
             <Container>
-                <Nav>
-                    <Navbar>
-                        <NavItem>
-                            <Link to="/dashboard" className="nav-link">Dashboard</Link>
-                        </NavItem>
-                        <NavItem>
-                            <Link to="/" className="nav-link">Home</Link>
-                        </NavItem>
+                <Col>
+                    <Navbar bg="light" expand="lg">
+                        <Navbar.Toggle aria-controls="navbar-nav" />
+                        <Navbar.Collapse id="navbar-nav">
+                            <Nav>
+
+                                <Link to="/" className="nav-link text-dark">Home</Link>
+                                <Link to="/dashboard" className="nav-link text-dark">Dashboard</Link>
+
+                            </Nav>
+                        </Navbar.Collapse>
                     </Navbar>
-                </Nav>
 
-                <hr />
+                    <Row>
+                        <Col>
+                            <Switch>
 
-                <Row>
-                    <Col>
-                        <Switch>
-                            <Route exact path="/">
-                                <Browse />
-                            </Route>
-                            <Route path="/dashboard">
-                                <Dashboard />
-                            </Route>
-                        </Switch>
-                    </Col>
-                </Row>
+                                <Route exact path="/">
+                                    <Browse />
+                                </Route>
+                                <Route path="/dashboard">
+                                    <Dashboard />
+                                </Route>
+
+                            </Switch>
+                        </Col>
+                    </Row>
+                </Col>
 
             </Container>
         </Router>

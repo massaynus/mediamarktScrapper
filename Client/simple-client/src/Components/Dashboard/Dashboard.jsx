@@ -19,7 +19,7 @@ const Dashboard = () => {
     return (
         <Col>
             <h1>Dashboard</h1>
-            <span className="text-muted">Click label to add or remove corresponding data from chart </span>
+            <span className="text-muted">Click the legend labels to add or remove corresponding data from chart </span>
 
             <hr />
 
