@@ -52,13 +52,12 @@ const Browse = () => {
             <Col>
                 <h1>Browse around</h1>
                 <Row>
-                    <Col>
+                    <Col md={3}>
                         <h3>Categories</h3>
                         {
                             categories ? <Categories categories={categories} categoryClickHandler={cat => setCategory(cat)} /> : "Loading..."
                         }
-                    </Col>
-                    <Col>
+
                         <h3>Products</h3>
                         {
                             products ? <Products products={products} productClickHandler={prod => setProduct(prod)} /> : "Loading..."
