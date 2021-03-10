@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
 import dotenv from 'dotenv'
 import express from 'express';
+import cors from 'cors';
+
 
 import { populateDb } from './scrappers/runner.js';
 import routes from './routes/api.js';
@@ -11,6 +13,7 @@ const PORT = process.env.PORT || 5000;
 
 const app = express();
 
+app.use(cors());
 app.use('/api', routes);
 app.get('/', (_, res) => {
     res.status(200);
