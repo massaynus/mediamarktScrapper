@@ -1,0 +1,292 @@
+[{
+  "_id": {
+    "$oid": "6046b26fef9d6756e016ac28"
+  },
+  "products": [
+    {
+      "$oid": "6046b31aef9d6756e016ac29"
+    },
+    {
+      "$oid": "6046b31aef9d6756e016ac3d"
+    },
+    {
+      "$oid": "6046b31aef9d6756e016ac51"
+    },
+    {
+      "$oid": "6046b31aef9d6756e016ac64"
+    },
+    {
+      "$oid": "6046b31aef9d6756e016ac78"
+    },
+    {
+      "$oid": "6046b31aef9d6756e016ac8c"
+    },
+    {
+      "$oid": "6046b31aef9d6756e016aca0"
+    },
+    {
+      "$oid": "6046b31aef9d6756e016acb4"
+    },
+    {
+      "$oid": "6046b31aef9d6756e016acc8"
+    },
+    {
+      "$oid": "6046b31aef9d6756e016acdc"
+    },
+    {
+      "$oid": "6046b31aef9d6756e016acf0"
+    },
+    {
+      "$oid": "6046b31aef9d6756e016ad03"
+    },
+    {
+      "$oid": "6046b31aef9d6756e016ad17"
+    },
+    {
+      "$oid": "6046b31aef9d6756e016ad2b"
+    },
+    {
+      "$oid": "6046b31aef9d6756e016ad3f"
+    },
+    {
+      "$oid": "6046b31aef9d6756e016ad53"
+    },
+    {
+      "$oid": "6046b31aef9d6756e016ad67"
+    },
+    {
+      "$oid": "6046b31aef9d6756e016ad7b"
+    },
+    {
+      "$oid": "6046b31aef9d6756e016ad8f"
+    },
+    {
+      "$oid": "6046b31aef9d6756e016ada2"
+    },
+    {
+      "$oid": "6046b31aef9d6756e016adb6"
+    },
+    {
+      "$oid": "6046b31aef9d6756e016adca"
+    },
+    {
+      "$oid": "6046b31aef9d6756e016adde"
+    },
+    {
+      "$oid": "6046b31aef9d6756e016adf2"
+    }
+  ],
+  "url": "https://mediamarkt.es/es/category/_m%C3%B3viles-xiaomi-759538.html",
+  "name": "Móviles Xiaomi",
+  "productsCount": 24,
+  "parent_url": "",
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6046b31cef9d6756e016ae05"
+  },
+  "products": [
+    {
+      "$oid": "6046b450ef9d6756e016ae06"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016ae1a"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016ae2e"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016ae42"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016ae56"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016ae6a"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016ae7e"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016ae92"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016aea6"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016aeb9"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016aecc"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016aee0"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016aef4"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016af08"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016af1b"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016af2f"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016af43"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016af56"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016af6a"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016af7e"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016af92"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016afa6"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016afb9"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016afcd"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016afe1"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016aff5"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016b009"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016b01d"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016b031"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016b045"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016b058"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016b06c"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016b080"
+    },
+    {
+      "$oid": "6046b450ef9d6756e016b094"
+    },
+    {
+      "$oid": "6046b451ef9d6756e016b0a8"
+    },
+    {
+      "$oid": "6046b451ef9d6756e016b0bc"
+    },
+    {
+      "$oid": "6046b451ef9d6756e016b0d0"
+    },
+    {
+      "$oid": "6046b451ef9d6756e016b0e3"
+    },
+    {
+      "$oid": "6046b451ef9d6756e016b0f7"
+    },
+    {
+      "$oid": "6046b451ef9d6756e016b10c"
+    },
+    {
+      "$oid": "6046b451ef9d6756e016b120"
+    },
+    {
+      "$oid": "6046b451ef9d6756e016b134"
+    },
+    {
+      "$oid": "6046b451ef9d6756e016b148"
+    },
+    {
+      "$oid": "6046b451ef9d6756e016b15c"
+    },
+    {
+      "$oid": "6046b451ef9d6756e016b170"
+    },
+    {
+      "$oid": "6046b451ef9d6756e016b184"
+    },
+    {
+      "$oid": "6046b451ef9d6756e016b194"
+    },
+    {
+      "$oid": "6046b451ef9d6756e016b1a7"
+    }
+  ],
+  "url": "https://mediamarkt.es/es/category/_black-friday-706013.html",
+  "name": "Black Friday 2021",
+  "productsCount": 3081,
+  "parent_url": "",
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6046b452ef9d6756e016b1bb"
+  },
+  "products": [
+    {
+      "$oid": "6046b4ccef9d6756e016b1bc"
+    },
+    {
+      "$oid": "6046b4ccef9d6756e016b1d0"
+    },
+    {
+      "$oid": "6046b4ccef9d6756e016b1e4"
+    },
+    {
+      "$oid": "6046b4ccef9d6756e016b1f8"
+    },
+    {
+      "$oid": "6046b4ccef9d6756e016b20a"
+    },
+    {
+      "$oid": "6046b4ccef9d6756e016b21e"
+    },
+    {
+      "$oid": "6046b4ccef9d6756e016b22d"
+    },
+    {
+      "$oid": "6046b4ccef9d6756e016b240"
+    },
+    {
+      "$oid": "6046b4ccef9d6756e016b250"
+    },
+    {
+      "$oid": "6046b4ccef9d6756e016b263"
+    },
+    {
+      "$oid": "6046b4ccef9d6756e016b276"
+    },
+    {
+      "$oid": "6046b4ccef9d6756e016b289"
+    },
+    {
+      "$oid": "6046b4ccef9d6756e016b29d"
+    },
+    {
+      "$oid": "6046b4ccef9d6756e016b2b1"
+    }
+  ],
+  "url": "https://mediamarkt.es/es/category/_lavadoras-samsung-762527.html",
+  "name": "Lavadoras Samsung",
+  "productsCount": 14,
+  "parent_url": "",
+  "__v": 1
+}]
