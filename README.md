@@ -1,4 +1,4 @@
-# MEDIAMARKT scrappers
+# MEDIAMARKT scrapper
 
 this is a project to scrap data from mediamarkt, it was built using MERN!
 
